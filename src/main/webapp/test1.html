@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<!--
+Project name(项目名称)：HTML5_Canvas_curve
+  File name(文件名): test1
+  Authors(作者）: mao
+  Author QQ：1296193245
+  GitHub：https://github.com/maomao124/
+  Date(创建日期)： 2022/4/3
+  Time(创建时间)： 13:38
+  Description(描述)： 无
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid hotpink;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 2s linear 0s;
+        }
+
+        canvas:hover {
+            border: 1px solid hotpink;
+            background-color: skyblue;
+            transition: all 2s linear 0s;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas" width="1280" height="720">
+    浏览器不支持画布功能
+</canvas>
+
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = "hotpink";
+
+    //三次曲线
+    ctx.beginPath();
+
+    ctx.scale(4, 4);
+    ctx.translate(60, 0);
+    ctx.moveTo(90, 55);
+    //bezierCurveTo()方法将三次贝塞尔曲线 添加到当前子路径。
+    // 它需要三个点：前两个是控制点，第三个是终点。
+    // 起点是当前路径中的最新点，可以在创建贝塞尔曲线之前使用moveTo()进行更改。
+    //cp1x – 第一个控制点的 x 轴坐标。
+    //cp1y – 第一个控制点的 y 轴坐标。
+    // cp2x – 第二个控制点的 x 轴坐标。
+    // cp2y – 第二个控制点的 y 轴坐标。
+    // x – 终点的 x 轴坐标。
+    // y – 终点的 y 轴坐标。
+
+    ctx.bezierCurveTo(90, 52, 85, 40, 65, 40);
+    ctx.bezierCurveTo(35, 40, 35, 77.5, 35, 77.5);
+    ctx.bezierCurveTo(35, 95, 55, 117, 90, 135);
+    ctx.bezierCurveTo(125, 117, 145, 95, 145, 77.5);
+    ctx.bezierCurveTo(145, 77.5, 145, 40, 115, 40);
+    ctx.bezierCurveTo(100, 40, 90, 52, 90, 55);
+    ctx.fill();
+</script>
+
+</body>
+</html>
